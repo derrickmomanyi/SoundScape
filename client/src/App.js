@@ -9,6 +9,7 @@ import Signup from "./components/Signup";
 import Home from "./components/Home";
 import Albums from "./components/Albums";
 import Artists from "./components/Artists";
+import EachAlbum from "./components/EachAlbum";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -65,7 +66,7 @@ function App() {
       <Route path = '/login' element = {<Login setUser = {setUser}/>} />
       <Route path = '/albums' element = {<Albums user = {user} albums = {displayAlbums} handleSearch={handleSearch} search={search} />} />
       <Route path = '/artists' element = {<Artists user = {user} artists = {displayArtists} handleSearch={handleSearch} search={search} /> } />
-          
+      <Route path = '/albums/:id' element = {<EachAlbum  user = {user} />}  /> 
      
     </Routes>
     </>
