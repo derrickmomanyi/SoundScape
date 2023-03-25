@@ -39,14 +39,14 @@ function App() {
     .then(res => res.json())
     .then((albums) => setAlbums(albums))
   }, []);
-  console.log(albums);
+  // console.log(albums);
 
   useEffect(() => {
     fetch(`/artists`)
     .then((r) => r.json())
     .then(artists => setArtists(artists))
   }, [])
-  console.log(artists);
+  // console.log(artists);
 
   function handleSearch(e){
     setSearch(e.target.value)

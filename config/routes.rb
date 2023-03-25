@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   resources :songs
   resources :albums
   resources :artists
+  resources :user_songs
+  resources :user_albums
+  resources :user_artists
   
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
