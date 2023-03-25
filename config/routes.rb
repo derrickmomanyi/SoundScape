@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  resources :users, only: [ :show, :create ]
+  resources :users
   
-  post '/login', to: 'session#create'
-  delete '/logout', to: 'session#destroy'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
   get '/me', to: 'users#show'
-
+ 
+ 
+ 
   get '/hello', to: 'application#hello_world'
 
   get '*path',

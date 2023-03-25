@@ -1,3 +1,6 @@
+
+
+
 import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
@@ -20,12 +23,10 @@ function App() {
     <>
     <Navbar user = {user} setUser = {setUser}/>
     <Routes>
-      <Route path = '/signup'>
-          <Signup  setUser = {setUser}/>
-      </Route>
-      <Route>
-          <Login setUser = {setUser}/>
-      </Route>
+      <Route path = '/signup' element = { <Signup  setUser = {setUser} />} />      
+      <Route path = '/login' element = {<Login setUser = {setUser}/>} />
+          
+     
     </Routes>
     </>
   );
