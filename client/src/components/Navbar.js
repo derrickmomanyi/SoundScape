@@ -42,6 +42,14 @@ function Navbar({ user, setUser}){
             <NavLink to='/'>
             <p><span>Home</span></p>
             </NavLink>
+
+            <NavLink to='/albums'>
+            <p><span>Albums</span></p>
+            </NavLink>
+
+            <NavLink to='/artists'>
+            <p><span>Artists</span></p>
+            </NavLink>
             </nav>
         </div>
     )

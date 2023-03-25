@@ -7,6 +7,8 @@ import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Home from "./components/Home";
+import Albums from "./components/Albums";
+import Artists from "./components/Artists";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -43,6 +45,8 @@ function App() {
       <Route path = '/' element = { <Home user = {user} setUser = {setUser}/>}/>
       <Route path = '/signup' element = { <Signup  setUser = {setUser} />} />      
       <Route path = '/login' element = {<Login setUser = {setUser}/>} />
+      <Route path = '/albums' element = {<Albums user = {user} />} />
+      <Route path = '/artists' element = {<Artists user = {user} /> } />
           
      
     </Routes>
