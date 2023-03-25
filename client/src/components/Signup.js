@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from "react"
+import React, {useState} from "react"
+import { useNavigate } from "react-router-dom";
 import '../css/Signup.css'
 
 function Signup({ setUser }){
@@ -7,7 +8,7 @@ function Signup({ setUser }){
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
     
-   
+    const navigate = useNavigate();
 
 
     function handleSubmit(e){
@@ -24,7 +25,7 @@ function Signup({ setUser }){
             password_confirmation: passwordConfirmation
         }
 
-               
+            
         fetch('/users', {
             method: "POST",
             headers: {
@@ -35,7 +36,8 @@ function Signup({ setUser }){
         .then((res) => {
             
             if(res.ok) {
-                res.json().then((user) => setUser(user)); 
+                res.json().then((user) => setUser(user));
+                navigate(`/`); 
             }
             else {
                 res.json().then((err) => alert(err.errors));
@@ -84,7 +86,7 @@ function Signup({ setUser }){
                 placeholder="Match your password"
                  onChange ={(e) => setPasswordConfirmation(e.target.value)}/>
         </div>
-
+        {/* <h3>Have an Account?</h3> */}
         
 
         
