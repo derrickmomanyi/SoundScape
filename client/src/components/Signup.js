@@ -46,11 +46,10 @@ function Signup({ setUser }){
         
     }
     return(
-        <div className="body">
+        <div className="body_sign">
            <div className="form">
            <form onSubmit = {handleSubmit}>
-           <h1>Don't have an account?</h1>
-        <h5>Create an account with your email and password</h5>
+           <h2>Don't have an account?</h2>      
         <div className="form-group">
 
             <label>Username</label>

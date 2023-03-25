@@ -30,7 +30,7 @@ function Login( {setUser} ){
             }
             else {
                 res.json().then((err) => alert("Invalid Username or Password"));
-                navigate('/signup')
+                // navigate('/signup')
             }
         })
     }
@@ -40,7 +40,7 @@ function Login( {setUser} ){
 
     return(
         <>
-         <div className="body">
+         <div className="body_sign">
            <div className="form">
            <form onSubmit = {handleSubmit}>
            <h1>Welcome back!!</h1>

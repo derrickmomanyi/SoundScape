@@ -21,7 +21,7 @@ function Navbar({ user, setUser}){
     return(
         <div className="sidebar">
             <nav  className='nav-menu-items'>
-            { user ? <span className="my_collection">{"WELCOME, " + user.username.toUpperCase()}</span> : ""}
+            { user ? <span className="my_collection">{"Hey, "  +  user.username.toUpperCase()}</span> : ""}
 
             { user ?
             <NavLink to='/logout' onClick={ handleLogout }>
