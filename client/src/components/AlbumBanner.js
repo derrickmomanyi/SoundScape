@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import "../css/AlbumBanner.css";
 
-const AlbumBanner = ( { album, artist }) => {
+const AlbumBanner = ( { album }) => {
 
-  const { title, year, image, genre, label, rating } = album
+  const { title, image } = album
 
 
 

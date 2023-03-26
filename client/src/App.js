@@ -1,6 +1,3 @@
-
-
-
 import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
@@ -11,6 +8,7 @@ import Albums from "./components/Albums";
 import Artists from "./components/Artists";
 import EachAlbum from "./components/EachAlbum";
 import EachArtist from "./components/EachArtist";
+import EachSong from "./components/EachSong";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -69,6 +67,7 @@ function App() {
       <Route path = '/artists' element = {<Artists user = {user} artists = {displayArtists} handleSearch={handleSearch} search={search} /> } />
       <Route path = '/albums/:id' element = {<EachAlbum  user = {user} />}  /> 
       <Route path = '/artists/:id' element = {<EachArtist user = {user} />} />
+      <Route path = 'songs/:id' element = {<EachSong user = {user} />} />
     </Routes>
     </>
   );

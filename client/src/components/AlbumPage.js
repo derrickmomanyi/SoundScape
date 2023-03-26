@@ -31,7 +31,7 @@ function AlbumPage({ album, user}){
 
   let destructuredIds;  
 
-//   user ? destructuredIds = user.user_albums.map(userAlbum => userAlbum.album).map(userAlbum => userAlbum.id) : destructuredIds = []
+  user ? destructuredIds = user.user_albums.map(userAlbum => userAlbum.album).map(userAlbum => userAlbum.id) : destructuredIds = []
 
 
     return(
@@ -56,7 +56,7 @@ function AlbumPage({ album, user}){
   
           <div className="column_two">
   
-            {/* {user ? 
+            {user ? 
             
               destructuredIds.indexOf(id) !== -1 || liked ? <i class="fa-solid fa-heart albumheart liked" onClick={handleAddAlbum}></i> : <i class="fa-solid fa-heart albumheart" onClick={handleAddAlbum}></i> 
   
@@ -64,7 +64,7 @@ function AlbumPage({ album, user}){
   
               null
           
-            } */}
+            }
   
           </div>
   

@@ -16,12 +16,12 @@ const ArtistBanner = ( { artist }) => {
       >
         <div className="artist_name">
             <h1 >{name}</h1>
-            <i class="fa-solid fa-circle-info" onClick={toggleShow}></i>
+            <i className="fa-solid fa-circle-info" onClick={toggleShow}></i>
         </div>
 
         <div id="myModal" className={show ? "modal show" : "modal"}>
-            <div class="modal-content">
-                <span class="close" onClick={toggleShow}>&times;</span>
+            <div className="modal-content">
+                <span className="close" onClick={toggleShow}>&times;</span>
                 <p>{bio}</p>
             </div>
         </div>
