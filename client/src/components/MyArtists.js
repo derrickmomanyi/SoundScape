@@ -9,7 +9,7 @@ const [userArtists, setUserArtists] = useState([])
       fetch(`/users/${user.id}`)
       .then(res => res.json())
       .then(user => setUserArtists(user.user_artists))
-  }, [])
+  }, [user.id])
 
   function onDeleteUserArtist(id) {
     const deleted = userArtists.filter(userArtist => userArtist
