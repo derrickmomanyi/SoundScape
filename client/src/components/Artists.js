@@ -19,7 +19,7 @@ const Artists = ( { user, handleSearch, search, artists } ) => {
       
       <div className="albums_container">
         {artists.map(artist =>
-            <ArtistPage artist={artist} user={user}/>
+            <ArtistPage key ={artist.id} artist={artist} user={user}/>
           )}
       </div>
     </div>

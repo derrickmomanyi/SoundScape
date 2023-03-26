@@ -11,7 +11,7 @@ const [userAlbums, setUserAlbums] = useState([])
       fetch(`/users/${user.id}`)
       .then(res => res.json())
       .then(user => setUserAlbums(user.user_albums))
-  }, [])
+  }, [user])
 
   function onDeleteUserAlbum(id) {
     const deleted = userAlbums.filter(userAlbum => userAlbum

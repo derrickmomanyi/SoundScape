@@ -5,7 +5,7 @@
     background-repeat: inherit;
     background-position: center;
     height: 200px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     padding-top: 20px;
     position: relative;
 }
@@ -48,21 +48,21 @@
     display: block;
   }
   
-  /* Modal Content/Box */
+ 
   .modal-content {
     background-color: black;
-    margin: 15% auto; /* 15% from the top and centered */
-    margin-top: 10%;
+    margin: 15% 30%; 
+    margin-top: 12%;
     padding: 20px;
     border: 1px solid #888;
     border-radius: 10px;
-    width: 50%; /* Could be more or less, depending on screen size */
+    width: 50%; 
     text-align: justify;
-    line-height: 25px;
+    line-height: 21px;
   }
 
   .modal-content p{
-    margin: 40px;
+    margin: 20px;
   }
   
   /* The Close Button */
@@ -82,4 +82,5 @@
 
   .fa-circle-info{
     cursor: pointer;
+    color: white;
   }
