@@ -10,6 +10,7 @@ import Home from "./components/Home";
 import Albums from "./components/Albums";
 import Artists from "./components/Artists";
 import EachAlbum from "./components/EachAlbum";
+import EachArtist from "./components/EachArtist";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -67,7 +68,7 @@ function App() {
       <Route path = '/albums' element = {<Albums user = {user} albums = {displayAlbums} handleSearch={handleSearch} search={search} />} />
       <Route path = '/artists' element = {<Artists user = {user} artists = {displayArtists} handleSearch={handleSearch} search={search} /> } />
       <Route path = '/albums/:id' element = {<EachAlbum  user = {user} />}  /> 
-     
+      <Route path = '/artists/:id' element = {<EachArtist user = {user} />} />
     </Routes>
     </>
   );

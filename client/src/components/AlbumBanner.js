@@ -14,7 +14,7 @@ const AlbumBanner = ( { album, artist }) => {
            style={{backgroundImage: `url("${image}")`}}
       >
         <div className="artist_name">
-            <h1 style={{transform: "translate(0%, 270%)", marginLeft: "20px"}}>{title}</h1>
+            <h1>{title}</h1>
         </div>
 
         <div className="banner--fadeBottom" />
