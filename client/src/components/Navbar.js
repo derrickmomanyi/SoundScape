@@ -50,6 +50,27 @@ function Navbar({ user, setUser}){
             <NavLink to='/artists'>
             <p><span>Artists</span></p>
             </NavLink>
+
+            <span className="line"></span>
+            { user ? 
+            <div>
+              <div className="my_collection">                
+                <span>MY PLAYLISTS</span>
+              </div>
+              
+              <NavLink to='/myartists'>
+                <p><span>My Artists</span></p>
+              </NavLink>
+
+              <NavLink to='/mysongs'>
+                <p><span>My Songs</span></p>
+              </NavLink>
+
+              <NavLink to='/myalbums'>
+                <p><span>My Albums</span></p>
+              </NavLink>
+            </div> : ""
+            }
             </nav>
         </div>
     )

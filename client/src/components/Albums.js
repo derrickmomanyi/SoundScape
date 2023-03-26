@@ -16,7 +16,7 @@ function Albums({user, search, handleSearch, albums}){
         <h1>Albums</h1>
         <div className="albums_container">
         {albums.map(album =>
-            <AlbumPage album={album} user={user} />            
+            <AlbumPage key = {album.id} album={album} user={user} />            
             )}
         </div>
       </div> 

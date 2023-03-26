@@ -9,12 +9,14 @@ import Artists from "./components/Artists";
 import EachAlbum from "./components/EachAlbum";
 import EachArtist from "./components/EachArtist";
 import EachSong from "./components/EachSong";
+import MyAlbums from "./components/MyAlbums";
 
 function App() {
   const [user, setUser] = useState(null);
   const [albums, setAlbums] = useState([])
   const [artists, setArtists] = useState([])
   const [search, setSearch] = useState("")
+  const [userAlbums, setUserAlbums] = useState([])
 
  
   useEffect(() => {
@@ -63,11 +65,13 @@ function App() {
       <Route path = '/' element = { <Home  albums = {displayAlbums} handleSearch={handleSearch} search={search} />}/>
       <Route path = '/signup' element = { <Signup  setUser = {setUser} />} />      
       <Route path = '/login' element = {<Login setUser = {setUser}/>} />
-      <Route path = '/albums' element = {<Albums user = {user} albums = {displayAlbums} handleSearch={handleSearch} search={search} />} />
+      <Route path = '/albums' element = {<Albums user = {user} albums = {displayAlbums} handleSearch={handleSearch} search={search} userAlbums={userAlbums}/>} />
       <Route path = '/artists' element = {<Artists user = {user} artists = {displayArtists} handleSearch={handleSearch} search={search} /> } />
       <Route path = '/albums/:id' element = {<EachAlbum  user = {user} />}  /> 
       <Route path = '/artists/:id' element = {<EachArtist user = {user} />} />
       <Route path = 'songs/:id' element = {<EachSong user = {user} />} />
+      <Route path = '/myalbums' element = {<MyAlbums user = {user} userAlbums={userAlbums} setUserAlbums={setUserAlbums}/>} />
+      
     </Routes>
     </>
   );
