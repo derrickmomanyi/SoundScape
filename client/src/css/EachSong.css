@@ -15,15 +15,18 @@
   }
   
   .song_video{
-    text-align: center;
+    text-align: center;    
   }
   
   .song_about{
     margin: 30px;
     text-align: justify;
+  
+    
   }
   
   .add-cover h1{
     display: block;
     text-align: center;
+   
   }

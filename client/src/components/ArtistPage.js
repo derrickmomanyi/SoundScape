@@ -28,9 +28,9 @@ const ArtistPage = ( { artist, user } ) => {
     setLiked(true)
   }
 
-  let destructuredIds  
+  let selectedArtistId  
 
-  user ? destructuredIds = user.user_artists.map(userArtist => userArtist.artist).map(userArtist => userArtist.id) : destructuredIds = []
+  user ? selectedArtistId = user.user_artists.map(userArtist => userArtist.artist).map(userArtist => userArtist.id) : selectedArtistId = []
 
 
   return (
@@ -53,7 +53,7 @@ const ArtistPage = ( { artist, user } ) => {
 
         {user ? 
             
-            destructuredIds.indexOf(artist.id) !== -1 || liked ? <i className="fa-solid fa-heart albumheart liked" onClick={handleAddArtist}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-heart-fill" viewBox="0 0 16 16">
+            selectedArtistId.indexOf(artist.id) !== -1 || liked ? <i className="fa-solid fa-heart albumheart liked" onClick={handleAddArtist}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-heart-fill" viewBox="0 0 16 16">
             <path fillRule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
           </svg></i> : <i className="fa-solid fa-heart albumheart" onClick={handleAddArtist}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-heart-fill" viewBox="0 0 16 16">
             <path fillRule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>

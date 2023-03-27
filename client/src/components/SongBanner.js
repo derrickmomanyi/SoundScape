@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { NavLink } from 'react-router-dom';
 import "../css/SongBanner.css"
 
 const SongBanner = ( { song } ) => {
 
-    const {title, year, featuring, produced_by, written_by, about} = song
+    const {title, year, featuring, produced_by, written_by} = song
 
     return (
         <header className='song_banner'

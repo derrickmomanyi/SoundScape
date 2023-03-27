@@ -12,7 +12,7 @@ const Song = ( { song, artist, user } ) => {
         height: '350',
         width: '50%',
         playerVars: {            
-            autoplay: 1,
+            autoplay: 1,  //indicates whether the video should start playing automatically when the player loads or not.
         },
     };
 
@@ -21,7 +21,7 @@ const Song = ( { song, artist, user } ) => {
         song.music_video.startsWith("https://youtu.be") ? videoId = song.music_video.slice(17, 28) : videoId = song.music_video.slice(32, 43)
         
         if (videoUrl) {
-            setVideoUrl('')
+            setVideoUrl('')  //set video url to null if play button is clicked twice
         } else {
             setVideoUrl(videoId)
             }

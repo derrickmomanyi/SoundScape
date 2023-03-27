@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import YouTube from 'react-youtube'
+import YouTube from 'react-youtube'
 import SongBanner from "./SongBanner";
 // import SongVideo from "./SongVideo";
 import "../css/EachSong.css"
@@ -13,10 +13,13 @@ const EachSong = ( { currentUser } ) => {
 //   const [songVideos, setSongVideos] = useState([])
   const { id } = useParams();
 
-//   const opts = {
-//       height: '400',
-//       width: '50%'
-//   };
+  const opts = {
+      height: '400',
+      width: '50%',
+      playerVars: {            
+          autoplay: 1,  //indicates whether the video should start playing automatically when the player loads or not.
+      },
+  };
 
   useEffect(() => {
     fetch(`/songs/${id}`)
@@ -28,10 +31,11 @@ const EachSong = ( { currentUser } ) => {
   })
 }, [id])
 
+
 if (!isLoaded) return <h2>Loading...</h2>
 
-// let videoId
-// song.music_video.startsWith("https://youtu.be") ? videoId = song.music_video.slice(17, 28) : videoId = song.music_video.slice(32, 43)
+let videoId
+song.music_video.startsWith("https://youtu.be") ? videoId = song.music_video.slice(17, 28) : videoId = song.music_video.slice(32, 43)
 
 
 // function addSongVideos(newVideo) {
@@ -47,12 +51,13 @@ if (!isLoaded) return <h2>Loading...</h2>
 
 
   return (
-    <div className="song_body">
+    <div className="song_body">      
       <SongBanner song={song} />
       <div className="song_about">
         <p>{song.about}</p>
       </div>
-      {/* <YouTube videoId={videoId} opts={opts} className="song_video"/> */}
+      <YouTube videoId={videoId} opts={opts} className="song_video"/>
+      
 
         <div className='add-cover'>
           {/* { currentUser ? 
