@@ -6454,4 +6454,8 @@ songs.each do |o|
     Song.create(title: o[:title], year: o[:year], artist: o[:artist], featuring: o[:featuring], album: o[:album], produced_by: o[:produced_by], written_by: o[:written_by], image: o[:image], about: o[:about], music_video: o[:music_video])
     end
 
+
+UserSong.create(user_id: 1, song_id: 1)
+UserArtist.create(user_id: 1, artist_id: 1)
+UserAlbum.create(user_id: 1, album_id: 1)
 puts "✅ Done seeding!"

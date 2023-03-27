@@ -3,4 +3,5 @@ class UserSerializer < ActiveModel::Serializer
   has_many :user_artists
   has_many :user_albums
   has_many :user_songs
+ 
 end

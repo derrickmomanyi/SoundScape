@@ -3,4 +3,5 @@ class UserSongSerializer < ActiveModel::Serializer
   has_one :user
   has_one :song
   has_one :artist
+
 end
