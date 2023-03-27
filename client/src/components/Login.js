@@ -1,5 +1,6 @@
 import React,{ useState} from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
+import '../css/Login.css'
 
 function Login( {setUser} ){
 
@@ -73,6 +74,11 @@ function Login( {setUser} ){
    
         <button type="submit" className="btn btn-success">Login</button>
         </form>
+        <div className="redirect">
+            <p><span>Don't have an account?</span></p>
+        <NavLink to='/signup'> <p><span>Sign Up</span></p> </NavLink>       
+        </div>
+        
            </div>
         </div>
         </>

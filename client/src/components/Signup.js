@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import '../css/Signup.css'
 
 function Signup({ setUser }){
@@ -85,12 +85,13 @@ function Signup({ setUser }){
                 placeholder="Match your password"
                  onChange ={(e) => setPasswordConfirmation(e.target.value)}/>
         </div>
-        {/* <h3>Have an Account?</h3> */}
-        
-
-        
+       
         <button type="submit" className="btn btn-success">Create Account</button>
         </form>
+        <div className="redirect">
+            <p><span>Already have an account?</span></p>
+        <NavLink to='/login'> <p><span>Log In</span></p> </NavLink>       
+        </div>
            </div>
         </div>
     )

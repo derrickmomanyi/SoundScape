@@ -22,6 +22,7 @@
 
 .btn.btn-success {
     margin-left: 30%;
+
 }
 
 
@@ -30,4 +31,5 @@
     margin-left: 15%;
     display: flex;   
     gap: 10px;
+   
 }
