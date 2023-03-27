@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_25_180332) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_27_212619) do
   create_table "albums", force: :cascade do |t|
     t.string "title"
     t.integer "year"
@@ -30,6 +30,28 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_25_180332) do
     t.string "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "song_video_comments", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "body"
+    t.integer "song_video_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["song_video_id"], name: "index_song_video_comments_on_song_video_id"
+    t.index ["user_id"], name: "index_song_video_comments_on_user_id"
+  end
+
+  create_table "song_videos", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "song_id", null: false
+    t.string "title"
+    t.string "video_url"
+    t.text "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["song_id"], name: "index_song_videos_on_song_id"
+    t.index ["user_id"], name: "index_song_videos_on_user_id"
   end
 
   create_table "songs", force: :cascade do |t|
@@ -84,6 +106,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_25_180332) do
   end
 
   add_foreign_key "albums", "artists"
+  add_foreign_key "song_video_comments", "song_videos"
+  add_foreign_key "song_video_comments", "users"
+  add_foreign_key "song_videos", "songs"
+  add_foreign_key "song_videos", "users"
   add_foreign_key "songs", "albums"
   add_foreign_key "songs", "artists"
   add_foreign_key "user_albums", "albums"

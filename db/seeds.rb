@@ -6455,7 +6455,4 @@ songs.each do |o|
     end
 
 
-UserSong.create(user_id: 1, song_id: 1)
-UserArtist.create(user_id: 1, artist_id: 1)
-UserAlbum.create(user_id: 1, album_id: 1)
 puts "✅ Done seeding!"

@@ -37,7 +37,7 @@ function Signup({ setUser }){
             
             if(res.ok) {
                 res.json().then((user) => setUser(user));
-                navigate(`/`); 
+                navigate(`/login`); 
             }
             else {
                 res.json().then((err) => alert(err.errors));
