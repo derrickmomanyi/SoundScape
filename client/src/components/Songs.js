@@ -1,4 +1,4 @@
-// import YouTube from 'react-youtube'
+import YouTube from 'react-youtube'
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import "../css/Songs.css";
@@ -8,17 +8,16 @@ const Song = ( { song, artist, user } ) => {
     const [videoUrl, setVideoUrl] = useState("")
     const [liked, setLiked] = useState(false)
 
-    // const opts = {
-    //     height: '350',
-    //     width: '50%',
-    //     playerVars: {
-    //         // https://developers.google.com/youtube/player_parameters
-    //         autoplay: 1,
-    //     },
-    // };
+    const opts = {
+        height: '350',
+        width: '50%',
+        playerVars: {            
+            autoplay: 1,
+        },
+    };
 
     function handleClick(song){
-        let videoId
+        let videoId;
         song.music_video.startsWith("https://youtu.be") ? videoId = song.music_video.slice(17, 28) : videoId = song.music_video.slice(32, 43)
         
         if (videoUrl) {
@@ -45,9 +44,9 @@ const Song = ( { song, artist, user } ) => {
         setLiked(true)
       }
 
-      let destructuredIds  
+      let selectedSongId  
 
-      user ? destructuredIds = user.user_songs.map(userSong => userSong.song).map(userSong => userSong.id) : destructuredIds = []
+      user ? selectedSongId = user.user_songs.map(userSong => userSong.song).map(userSong => userSong.id) : selectedSongId = []
     
 
     return (
@@ -64,9 +63,9 @@ const Song = ( { song, artist, user } ) => {
 
             {user ? 
           
-            destructuredIds.indexOf(song.id) !== -1 || liked ? <i class="fa-solid fa-heart albumheart liked" onClick={handleAddSong}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-heart-fill" viewBox="0 0 16 16">
+            selectedSongId.indexOf(song.id) !== -1 || liked ? <i className="fa-solid fa-heart albumheart liked" onClick={handleAddSong}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-heart-fill" viewBox="0 0 16 16">
             <path fillRule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-          </svg></i> : <i class="fa-solid fa-heart albumheart" onClick={handleAddSong}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-heart-fill" viewBox="0 0 16 16">
+          </svg></i> : <i className="fa-solid fa-heart albumheart" onClick={handleAddSong}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-heart-fill" viewBox="0 0 16 16">
   <path fillRule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
 </svg></i> 
 
@@ -77,7 +76,7 @@ const Song = ( { song, artist, user } ) => {
             }
 
             
-            {/* {videoUrl && <YouTube videoId={videoUrl} opts={opts} className="music_video"/>} */}
+            {videoUrl && <YouTube videoId={videoUrl} opts={opts} className="music_video"/>}
 
             <NavLink to={`/artists/${artist.id}`}>
                 <p>{artist.name}</p>

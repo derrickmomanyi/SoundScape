@@ -1,12 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import '../css/AlbumPage.css'
 
 function AlbumPage({ album, user}){
     const {id, image, title} = album
     
-  const [liked, setLiked] = useState(false)
-  const [userAlbums, setUserAlbums] = useState([])
+  const [liked, setLiked] = useState(false) 
 
   function truncate(str, n) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
@@ -29,9 +28,9 @@ function AlbumPage({ album, user}){
   }
 
 
-  let destructuredIds;  
+  let selectedAlbumId;    
 
-  user ? destructuredIds = user.user_albums.map(userAlbum => userAlbum.album).map(userAlbum => userAlbum.id) : destructuredIds = []
+  user ? selectedAlbumId = user.user_albums.map(userAlbum => userAlbum.album).map(userAlbum => userAlbum.id) : selectedAlbumId = []
 
 
     return(
@@ -58,7 +57,7 @@ function AlbumPage({ album, user}){
   
             {user ? 
             
-              destructuredIds.indexOf(id) !== -1 || liked ? <i className="fa-solid fa-heart albumheart liked" onClick={handleAddAlbum}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-heart-fill" viewBox="0 0 16 16">
+              selectedAlbumId.indexOf(id) !== -1 || liked ? <i className="fa-solid fa-heart albumheart liked" onClick={handleAddAlbum}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-heart-fill" viewBox="0 0 16 16">
               <path fillRule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
             </svg></i> : <i className="fa-solid fa-heart albumheart" onClick={handleAddAlbum}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-heart-fill" viewBox="0 0 16 16">
   <path fillRule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>

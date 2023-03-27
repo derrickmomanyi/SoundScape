@@ -42,3 +42,31 @@
     border-radius: 10px;
   }
 
+.spotify{
+  padding: 6px;
+  width: 40%;
+  margin-top: 4px;
+  margin-left: -15px;
+
+
+}
+.heading{
+  display: flex;
+  margin-left: 9px;
+  
+}
+
+.soundscape{
+  margin-left: -48px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Gotham Font Family;
+}
+
+.line{
+  border-bottom: 1px solid #cccccc !important;
+  padding: 10px !important;
+    
+
+    
+}
