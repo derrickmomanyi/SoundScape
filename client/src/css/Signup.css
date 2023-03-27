@@ -14,20 +14,62 @@
     width: 30%;  
     margin: auto;
     position: relative;
-    transform: translate(-0%, 50%)
+    transform: translate(-0%, 45%)
     
   
 
 }
 
+.form.signup {
+    width: 30%;  
+    margin: auto;
+    position: relative;
+    transform: translate(-0%, 35%)
+    
+  
+
+}
+
+h1{
+    margin-left: 80px;
+}
+h2{
+    margin-left: 80px; 
+}
 .btn.btn-success {
     margin-left: 30%;
+}
+
+.btn.btn-success.login {
+    margin-left: 37%;
 }
 
 
 .redirect{
     margin-top: 20px;
-    margin-left: 15%;
+    margin-left: 25%;
     display: flex;   
     gap: 10px;
 }
+
+.soundscapes{   
+    margin-top: 15px;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Gotham Font Family;
+  }
+
+  .spotifys{
+    /* padding: 6px; */    
+    margin-top: 28px;
+    margin-left: 740px;
+   
+  
+  
+  }
+  .headings{
+    display: flex;
+    margin-left: 9px;
+    gap: 10px;
+    
+  }
