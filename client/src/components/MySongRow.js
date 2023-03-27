@@ -1,4 +1,4 @@
-// import YouTube from 'react-youtube'
+import YouTube from 'react-youtube'
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import "../css/Songs.css";
@@ -21,8 +21,7 @@ const MySongRow = ( { userSong, onDeleteUserSong } ) => {
         height: '350',
         width: '50%',
         playerVars: {
-            // https://developers.google.com/youtube/player_parameters
-            autoplay: 1,
+             autoplay: 1,
         },
     };
 
@@ -60,7 +59,7 @@ const MySongRow = ( { userSong, onDeleteUserSong } ) => {
   <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
 </svg></i>
             
-            {/* {videoUrl && <YouTube videoId={videoUrl} opts={opts} className="music_video"/>} */}
+            {videoUrl && <YouTube videoId={videoUrl} opts={opts} className="music_video"/>}
 
             <NavLink to={`/artists/${artist.id}`}>
                 <p>{artist.name}</p>
