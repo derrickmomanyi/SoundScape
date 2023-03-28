@@ -6,6 +6,7 @@ function Login( {setUser} ){
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [errors, setErrors] = useState(null)
     const navigate = useNavigate();
 
     function handleSubmit(e){
@@ -30,8 +31,8 @@ function Login( {setUser} ){
                 navigate(`/`); 
             }
             else {
-                res.json().then((err) => alert("Invalid Username or Password"));
-                // navigate('/signup')
+                res.json().then((err) => setErrors("Invalid Username or Password!!"));
+                
             }
         })
     }
@@ -77,6 +78,8 @@ function Login( {setUser} ){
                 placeholder="Enter Your Password"
                  onChange ={(e) => setPassword(e.target.value)}/>
         </div>
+
+        <p style={{color: 'red'}}>{errors}</p>
 
    
         <button type="submit" className="btn btn-success login">Login</button>
