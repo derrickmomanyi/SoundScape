@@ -2,22 +2,22 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import YouTube from 'react-youtube'
 import SongBanner from "./SongBanner";
-// import SongVideo from "./SongVideo";
+import SongVideo from "./SongVideo";
 import "../css/EachSong.css"
-// import SongVideoForm from "./SongVideoForm";
+import SongVideoForm from "./SongVideoForm";
 
-const EachSong = ( { currentUser } ) => {
+const EachSong = ( { user } ) => {
 
   const [isLoaded, setIsLoaded] = useState(false)
   const [song, setSong] = useState([])
-//   const [songVideos, setSongVideos] = useState([])
+  const [songVideos, setSongVideos] = useState([])
   const { id } = useParams();
 
   const opts = {
       height: '400',
       width: '50%',
       playerVars: {            
-          autoplay: 1,  //indicates whether the video should start playing automatically when the player loads or not.
+          autoplay: 0,  //indicates whether the video should start playing automatically when the player loads or not.
       },
   };
 
@@ -27,9 +27,11 @@ const EachSong = ( { currentUser } ) => {
     .then(song => {
       setSong(song);
       setIsLoaded(true)
-    //   setSongVideos([...song.song_videos])
+      setSongVideos([...song.song_videos])
   })
 }, [id])
+
+// console.log(song.song_videos);
 
 
 if (!isLoaded) return <h2>Loading...</h2>
@@ -38,16 +40,16 @@ let videoId
 song.music_video.startsWith("https://youtu.be") ? videoId = song.music_video.slice(17, 28) : videoId = song.music_video.slice(32, 43)
 
 
-// function addSongVideos(newVideo) {
-//   setSongVideos([...songVideos, newVideo])
-// }
+function addSongVideos(newVideo) {
+  setSongVideos([...songVideos, newVideo])
+}
 
-// function onHandleDelete(id) {
-//   const updatedSongVideos = songVideos.filter(songVideo => songVideo.id !== id)
-//   setSongVideos(updatedSongVideos) 
-// }
+function onHandleDelete(id) {
+  const updatedSongVideos = songVideos.filter(songVideo => songVideo.id !== id)
+  setSongVideos(updatedSongVideos) 
+}
 
-// const songVideoArray = songVideos.map(songVideo => <SongVideo key={songVideo} songVideo={songVideo} videoId={videoId} opts={opts} onHandleDelete={onHandleDelete} currentUser={currentUser}/>)
+const songVideoArray = songVideos.map(songVideo => <SongVideo key={songVideo} songVideo={songVideo} videoId={videoId} opts={opts} onHandleDelete={onHandleDelete} users={user}/>)
 
 
   return (
@@ -60,18 +62,18 @@ song.music_video.startsWith("https://youtu.be") ? videoId = song.music_video.sli
       
 
         <div className='add-cover'>
-          {/* { currentUser ? 
+          { user ? 
             <div>
-              <h1>Add a Live Performance or Cover!</h1> 
-              <SongVideoForm id={id} currentUser={currentUser} addSongVideos={addSongVideos}/> 
+              <h1>Add a Live Performance</h1> 
+              <SongVideoForm id={id} user={user} addSongVideos={addSongVideos}/> 
             </div>
             :
-            <h1>Sign Up to Add a Live Performance or Cover!</h1> }  */}
+            <h1>Sign Up to Add a Live Performance</h1> } 
         </div>
       
       
       <div>
-          {/* {songVideoArray} */}
+          {songVideoArray}
       </div>     
     </div>
   );
