@@ -7,17 +7,14 @@ function Signup({ setUser }){
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
-    
+    const [errors, setErrors] = useState(null)
     const navigate = useNavigate();
 
 
     function handleSubmit(e){
         e.preventDefault()
 
-        if (password !== passwordConfirmation) {
-            alert("passwords do not match");
-            return;
-          }
+        
 
         const newSignup = {
             username: username,
@@ -25,8 +22,16 @@ function Signup({ setUser }){
             password_confirmation: passwordConfirmation
         }
 
-            
-        fetch('/users', {
+        if (username.length < 4) {
+            setErrors("Username must be at least 4 characters long!!");            
+          } 
+          else if (password.length < 4 ){
+            setErrors("Password must be at least 4 characters long!!"); 
+          }
+        else if (password !== passwordConfirmation) {
+            setErrors("Passwords do not match");            
+          }    
+        else{fetch('/users', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -42,7 +47,7 @@ function Signup({ setUser }){
             else {
                 res.json().then((err) => alert(err.errors));
             }
-        })
+        })}
         
     }
     return(
@@ -65,15 +70,16 @@ function Signup({ setUser }){
             name ='username' 
             value = {username}
              className="form-control" 
-             placeholder="Enter Preferred Username" 
+             placeholder="Enter Preferred Username"        
              onChange ={(e) => setUsername(e.target.value)}/>
         
         </div>
+        
 
        
         <div className="form-group">
             <label>Password</label>
-            <input type="text"
+            <input type="password"
             required
              name ='password'
               value = {password}
@@ -84,7 +90,7 @@ function Signup({ setUser }){
 
         <div className="form-group">
             <label>Re-Enter Password</label>
-            <input type="text"
+            <input type="password"
             required
              name ='passwordConfirmation'
               value = {passwordConfirmation}
@@ -92,6 +98,7 @@ function Signup({ setUser }){
                 placeholder="Match Your Password"
                  onChange ={(e) => setPasswordConfirmation(e.target.value)}/>
         </div>
+        <p style={{color: 'red'}}>{errors}</p>
        
         <button type="submit" className="btn btn-success">Create Account</button>
         </form>
