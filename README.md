@@ -17,7 +17,7 @@ A user can be able to:
 
 - Get and post comments to every song 
 
-![Home Page](Screenshot from 2023-03-29 15-55-34.png)
+![Home Page](https://github.com/derrickmomanyi/SoundScape/blob/main/images/Home.png?raw=true)
 
 
 
