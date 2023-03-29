@@ -1,6 +1,6 @@
 class UserSongsController < ApplicationController
     before_action :find_user_song, only: [:show, :destroy]
-    skip_before_action :authorized_user
+    skip_before_action :authorized_user 
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 

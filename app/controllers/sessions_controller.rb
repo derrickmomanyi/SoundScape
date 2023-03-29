@@ -11,8 +11,7 @@ class SessionsController < ApplicationController
                 render json: {errors: 'Invalid Password or Username'}, status: :unauthorized
             end
         end
-        rescue ActiveRecord::RecordNotFound => e        
-        render json: { errors: [] }, status: :unauthorized
+      
     end
 
     def destroy

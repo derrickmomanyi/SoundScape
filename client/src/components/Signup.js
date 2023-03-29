@@ -28,6 +28,9 @@ function Signup({ setUser }){
           else if (password.length < 4 ){
             setErrors("Password must be at least 4 characters long!!"); 
           }
+          else if (!password.includes('@')){
+            setErrors("Password should include an @")
+          }
         else if (password !== passwordConfirmation) {
             setErrors("Passwords do not match");            
           }    

@@ -18,6 +18,7 @@ const SongVideo = ( { songVideo, opts, onHandleDelete, users } ) => {
           setSongVideoComments([...songVideo.song_video_comments])
       })
   }, [id])
+// console.log(songVideoComments);
 
   function handleDelete() {
     fetch(`/song_videos/${id}`, {

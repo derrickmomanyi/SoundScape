@@ -36,9 +36,9 @@ function Home({ handleSearch, search, albums }){
                 <Row title="Rap" albums={rap} />
                 <Row title="R&amp;B" albums={rnb} />
                 <Row title="Pop" albums={pop} />
-                <Row title="Rock" albums={rock} />
+                <Row title="Reggaeton" albums={reggaeton} />                
                 <Row title="Latin" albums={latin} />
-                <Row title="Reggaeton" albums={reggaeton} />               
+                <Row title="Rock" albums={rock} />              
                 <Row title="Disco" albums={disco} />                
                 
             </div>

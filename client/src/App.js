@@ -20,7 +20,7 @@ function App() {
   const [search, setSearch] = useState("")
   const [userAlbums, setUserAlbums] = useState([])
 
- 
+ //check if user is authorized after logging in
   useEffect(() => {
     fetch('/me')
     .then((res) => {
@@ -68,12 +68,12 @@ function App() {
       <Route path = '/signup' element = { <Signup  setUser = {setUser} />} />      
       <Route path = '/login' element = {<Login setUser = {setUser}/>} />
       <Route path = '/albums' element = {<Albums user = {user} albums = {displayAlbums} handleSearch={handleSearch} search={search} userAlbums={userAlbums}/>} />
-      <Route path = '/artists' element = {<Artists user = {user} artists = {displayArtists} handleSearch={handleSearch} search={search} /> } />
       <Route path = '/albums/:id' element = {<EachAlbum  user = {user} />}  /> 
-      <Route path = '/artists/:id' element = {<EachArtist user = {user} />} />
-      <Route path = 'songs/:id' element = {<EachSong user = {user} />} />
       <Route path = '/myalbums' element = {<MyAlbums user = {user} userAlbums={userAlbums} setUserAlbums={setUserAlbums}/>} />
+      <Route path = '/artists' element = {<Artists user = {user} artists = {displayArtists} handleSearch={handleSearch} search={search} /> } />      
+      <Route path = '/artists/:id' element = {<EachArtist user = {user} />} />
       <Route path = '/myartists' element = {<MyArtists user = {user} />} />
+      <Route path = 'songs/:id' element = {<EachSong user = {user} />} />    
       <Route path = '/mysongs' element = {<MySongs user = {user} />} />
       
     </Routes>
