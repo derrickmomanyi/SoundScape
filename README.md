@@ -23,9 +23,15 @@ A user can be able to:
 
 
  ## Technologies Used
+# Frontend
+- React
+- Javascript
+- Bootstrap
+- CSS
 
+# Backend
 - Ruby on Rails
-- AMG - Active Model Serializer
+- Active Model 
 - SQLite3
 
 
