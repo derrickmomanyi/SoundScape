@@ -8,12 +8,12 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: soundscape
-  password: soundscape
+  username: soundscape_4aat_user
+  password: i4cUDXs4Ubo7ojeA0brve6J04hC7tTj7
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: soundscape_4aat
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
