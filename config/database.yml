@@ -5,15 +5,13 @@
 #   gem "sqlite3"
 #
 default: &default
-  adapter: postgresql
-  encoding: unicode
+  adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: soundscape_4aat_user
-  password: i4cUDXs4Ubo7ojeA0brve6J04hC7tTj7
+  timeout: 5000
 
 development:
   <<: *default
-  database: soundscape_4aat
+  database: db/development.sqlite3
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -24,4 +22,4 @@ test:
 
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
+  database: db/production.sqlite3
