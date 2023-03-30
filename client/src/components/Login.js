@@ -52,7 +52,7 @@ function Login( {setUser} ){
               </div>
            <div className="form">
            <form onSubmit = {handleSubmit}>
-           <h1>Welcome back!!</h1>
+           <h1 className="welcome">Welcome back!!</h1>
         
         <div className="form-group">
 
@@ -70,7 +70,7 @@ function Login( {setUser} ){
        
         <div className="form-group">
             <label>Password</label>
-            <input type="text"
+            <input type="password"
             required
              name ='password'
               value = {password}
@@ -84,7 +84,7 @@ function Login( {setUser} ){
    
         <button type="submit" className="btn btn-success login">Login</button>
         </form>
-        <div className="redirect">
+        <div className="redirect-login">
             <p><span>Don't have an account?</span></p>
         <NavLink to='/signup'> <p><span>Sign Up</span></p> </NavLink>       
         </div>

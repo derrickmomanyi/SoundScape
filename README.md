@@ -1,5 +1,7 @@
 ### SoundScape
-SoundScape is a cutting-edge music app that allows you to fully immerse yourself in your favorite songs. With its sleek design and user-friendly interface, SoundScape offers a unique audio experience that brings your music to life like never before. Whether you're a casual listener or an avid music lover, SoundScape has something for everyone. Discover new artists, create playlists, and enjoy high-quality audio streaming all in one convenient location. With SoundScape, your music will never sound the same again.
+SoundScape is a cutting-edge music app that allows you to fully immerse yourself in your favorite songs.
+With its sleek design and user-friendly interface, SoundScape offers a unique audio experience that brings your music to life like never before.
+Whether you're a casual listener or an avid music lover, SoundScape has something for everyone. Discover new artists, create playlists, and enjoy high-quality audio streaming all in one convenient location. With SoundScape, your music will never sound the same again.
 
 ![Home Page](https://github.com/derrickmomanyi/SoundScape/blob/main/images/Home.png?raw=true)
 

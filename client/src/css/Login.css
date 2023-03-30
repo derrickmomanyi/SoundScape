@@ -25,11 +25,14 @@
 
 }
 
-
-.redirect{
+.redirect-login{
     margin-top: 20px;
-    margin-left: 15%;
+    margin-left: 25%;
     display: flex;   
     gap: 10px;
-   
+}
+
+
+.welcome{
+    margin-left: 100px;
 }

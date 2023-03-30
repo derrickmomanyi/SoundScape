@@ -12,6 +12,7 @@ import EachSong from "./components/EachSong";
 import MyAlbums from "./components/MyAlbums";
 import MyArtists from "./components/MyArtists";
 import MySongs from "./components/MySongs";
+import Layout from "./components/Layout";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -62,11 +63,10 @@ function App() {
 
   return (
     <>
-    <Navbar user = {user} setUser = {setUser}/>
+   
     <Routes>
-      <Route path = '/' element = { <Home  albums = {displayAlbums} handleSearch={handleSearch} search={search} />}/>
-      <Route path = '/signup' element = { <Signup  setUser = {setUser} />} />      
-      <Route path = '/login' element = {<Login setUser = {setUser}/>} />
+      <Route path = '/' element = { <Layout user = {user} setUser = {setUser} />}>
+      <Route index element = { <Home  albums = {displayAlbums} handleSearch={handleSearch} search={search} />}/>
       <Route path = '/albums' element = {<Albums user = {user} albums = {displayAlbums} handleSearch={handleSearch} search={search} userAlbums={userAlbums}/>} />
       <Route path = '/albums/:id' element = {<EachAlbum  user = {user} />}  /> 
       <Route path = '/myalbums' element = {<MyAlbums user = {user} userAlbums={userAlbums} setUserAlbums={setUserAlbums}/>} />
@@ -75,6 +75,11 @@ function App() {
       <Route path = '/myartists' element = {<MyArtists user = {user} />} />
       <Route path = 'songs/:id' element = {<EachSong user = {user} />} />    
       <Route path = '/mysongs' element = {<MySongs user = {user} />} />
+      </Route>
+      
+      <Route path = '/signup' element = { <Signup  setUser = {setUser} />} />      
+      <Route path = '/login' element = {<Login setUser = {setUser}/>} />
+      
       
     </Routes>
     </>
