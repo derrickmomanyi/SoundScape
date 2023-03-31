@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  # resources :users
-  # resources :songs
+  resources :users
+  resources :songs
   resources :albums
   resources :artists
-  # resources :user_songs
-  # resources :user_albums
-  # resources :user_artists
-  # resources :song_videos
-  # resources :song_video_comments
+  resources :user_songs
+  resources :user_albums
+  resources :user_artists
+  resources :song_videos
+  resources :song_video_comments
 
   
   post '/login', to: 'sessions#create'
