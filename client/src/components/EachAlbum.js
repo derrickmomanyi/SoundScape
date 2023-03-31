@@ -32,7 +32,7 @@ const {year, label, artist} = album
       <AlbumBanner album={album} artist={artist}/>
       <ol className="album_list_item">
         {album.songs.map(song =>
-          <li key = {song.id}><Songs song={song} artist={artist} user={user}/></li>
+          <li ><Songs key = {song.id} song={song} artist={artist} user={user}/></li>
         )}
       </ol>
       <p className="album_details">{year}, {label}</p>   
