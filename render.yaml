@@ -1,18 +1,18 @@
 databases:
-  - name: soundscape_development
-    databaseName: soundscape_development
-    user: soundscape_development
+  - name: Soundscape_database
+    databaseName: soundscape_database
+    user: soundscape_database_user
 
 services:
   - type: web
-    name: soundscape-app
+    name: soundscape-development
     env: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: soundscape_development
+          name: soundscape_database
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
