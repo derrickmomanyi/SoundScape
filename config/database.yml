@@ -86,6 +86,4 @@ test:
 #
 production:
   <<: *default
-  database: soundscape_production
-  username: soundscape
-  password: <%= ENV["SOUNDSCAPE_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
