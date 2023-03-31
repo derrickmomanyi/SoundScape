@@ -44,9 +44,18 @@ group :development, :test do
 end
 
 group :development do
-  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
+   gem 'listen', '~> 3.3'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
 end
 
+group :development, :test do
+  gem 'rspec-rails', '~> 5.0.0'
+end
+
+group :test do
+  gem 'rspec-json_expectations'
+  gem 'shoulda-matchers', '~> 4.0'
+end
 
 gem "active_model_serializers", "~> 0.10.13"
