@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_27_212619) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_31_111925) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "albums", force: :cascade do |t|
+    t.string "title"
+    t.integer "year"
+    t.string "image"
+    t.string "genre"
+    t.string "label"
+    t.integer "rating"
+    t.bigint "artist_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_albums_on_artist_id"
+  end
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
@@ -23,20 +35,27 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_212619) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "albums", force: :cascade do |t|
-    t.string "title"
-    t.integer "year"
-    t.string "image"
-    t.string "genre"
-    t.string "label"
-    t.integer "rating"
-    t.integer "artist_id", null: false
+  create_table "song_video_comments", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "body"
+    t.bigint "song_video_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["artist_id"], name: "index_albums_on_artist_id"
+    t.index ["song_video_id"], name: "index_song_video_comments_on_song_video_id"
+    t.index ["user_id"], name: "index_song_video_comments_on_user_id"
   end
 
-
+  create_table "song_videos", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "song_id", null: false
+    t.string "title"
+    t.string "video_url"
+    t.text "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["song_id"], name: "index_song_videos_on_song_id"
+    t.index ["user_id"], name: "index_song_videos_on_user_id"
+  end
 
   create_table "songs", force: :cascade do |t|
     t.string "title"
@@ -47,12 +66,39 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_212619) do
     t.string "image"
     t.string "about"
     t.string "music_video"
-    t.integer "artist_id", null: false
-    t.integer "album_id", null: false
+    t.bigint "artist_id", null: false
+    t.bigint "album_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["album_id"], name: "index_songs_on_album_id"
     t.index ["artist_id"], name: "index_songs_on_artist_id"
+  end
+
+  create_table "user_albums", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "album_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["album_id"], name: "index_user_albums_on_album_id"
+    t.index ["user_id"], name: "index_user_albums_on_user_id"
+  end
+
+  create_table "user_artists", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "artist_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_user_artists_on_artist_id"
+    t.index ["user_id"], name: "index_user_artists_on_user_id"
+  end
+
+  create_table "user_songs", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "song_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["song_id"], name: "index_user_songs_on_song_id"
+    t.index ["user_id"], name: "index_user_songs_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -61,61 +107,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_212619) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "song_videos", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "song_id", null: false
-    t.string "title"
-    t.string "video_url"
-    t.text "comments"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["song_id"], name: "index_song_videos_on_song_id"
-    t.index ["user_id"], name: "index_song_videos_on_user_id"
-  end
-
-
-  create_table "song_video_comments", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "body"
-    t.integer "song_video_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["song_video_id"], name: "index_song_video_comments_on_song_video_id"
-    t.index ["user_id"], name: "index_song_video_comments_on_user_id"
-  end
-
- 
-
-
-  create_table "user_albums", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "album_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["album_id"], name: "index_user_albums_on_album_id"
-    t.index ["user_id"], name: "index_user_albums_on_user_id"
-  end
-
-  create_table "user_artists", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "artist_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["artist_id"], name: "index_user_artists_on_artist_id"
-    t.index ["user_id"], name: "index_user_artists_on_user_id"
-  end
-
-  create_table "user_songs", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "song_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["song_id"], name: "index_user_songs_on_song_id"
-    t.index ["user_id"], name: "index_user_songs_on_user_id"
-  end
-
-  
 
   add_foreign_key "albums", "artists"
   add_foreign_key "song_video_comments", "song_videos"
