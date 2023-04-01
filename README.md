@@ -1,19 +1,22 @@
 ### SoundScape
+
 SoundScape is a cutting-edge music app that allows you to fully immerse yourself in your favorite songs.
 With its sleek design and user-friendly interface, SoundScape offers a unique audio experience that brings your music to life like never before.
 Whether you're a casual listener or an avid music lover, SoundScape has something for everyone. Discover new artists, create playlists, and enjoy high-quality audio streaming all in one convenient location. With SoundScape, your music will never sound the same again.
 
-The app is currently deployed here https://soundscape-development.onrender.com/
+The app is currently deployed here https://soundscape-frontend.onrender.com
 
+Server is deployed here https://soundscape-development.onrender.com
 
 ![Home Page](https://github.com/derrickmomanyi/SoundScape/blob/main/images/Home.png?raw=true)
 
 ## User Stories
+
 A user can be able to:
 
 - Register and log in
 - Browse the app's vast music library with the ability to search and filter music by genre, artist, and album
- for their favorite songs/videos and discover new music
+  for their favorite songs/videos and discover new music
 
 - See production, label information for every song
 
@@ -21,24 +24,22 @@ A user can be able to:
 
 - Get and post live performances of their favorite songs
 
-- Get and post comments to every song 
+- Get and post comments to every song
 
+## Technologies Used
 
-
-
-
- ## Technologies Used
 # Frontend
+
 - React
 - Javascript
 - Bootstrap
 - CSS
 
 # Backend
-- Ruby on Rails
-- Active Model 
-- SQLite3
 
+- Ruby on Rails
+- Active Model
+- SQLite3
 
 ## Setup
 
@@ -52,14 +53,11 @@ npm install --prefix client
 
 You can use the following commands to run the application:
 
-- ```rails s```: run the backend on http://localhost:3000
-- ```npm start``` --prefix client: run the frontend on http://localhost:4000
-
-
-
-
+- `rails s`: run the backend on http://localhost:3000
+- `npm start` --prefix client: run the frontend on http://localhost:4000
 
 ## Author
+
 - [Derrick Momanyi](https://github.com/derrickmomanyi)
 
 License
