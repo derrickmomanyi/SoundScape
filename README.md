@@ -6,7 +6,9 @@ Whether you're a casual listener or an avid music lover, SoundScape has somethin
 
 The app is currently deployed here https://soundscape-frontend.onrender.com
 
-Server is deployed here https://soundscape-development.onrender.com
+The database is deployed here https://railsapp-soundscape.onrender.com
+
+The frontend react app page is found here https://github.com/derrickmomanyi/SoundScape-FrontEnd
 
 ![Home Page](https://github.com/derrickmomanyi/SoundScape/blob/main/images/Home.png?raw=true)
 
