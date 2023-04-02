@@ -1,10 +1,13 @@
 class UsersController < ApplicationController
-    skip_before_action :authorized_user, only: [:show, :create]
+    skip_before_action :authorized_user, only: [:show, :create, :index]
 
    wrap_parameters format: []
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
+    def index
+      render json: User.all, status: :ok
+    end
     
     def create
         user = User.create!(user_params)
@@ -29,6 +32,10 @@ class UsersController < ApplicationController
     def user_params
       params.permit(:username, :password, :password_confirmation)
     end
+
+    def render_not_found_response
+      render json: { errors: "User for User not found"}, status: :not_found
+  end
 
        
     def render_unprocessable_entity_response(invalid)
